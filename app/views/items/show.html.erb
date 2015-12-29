@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @item.id %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @item.size %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @item.color %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @item.status %>
+</p>
+
+<p>
+  <strong>Price sold:</strong>
+  <%= @item.price_sold %>
+</p>
+
+<p>
+  <strong>Sold at:</strong>
+  <%= @item.sold_at %>
+</p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @item.style_id %>
+</p>
+
+<p>
+  <strong>Clearance batch:</strong>
+  <%= @item.clearance_batch_id %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
