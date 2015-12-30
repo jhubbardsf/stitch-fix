@@ -1,14 +1,14 @@
 # Notes from Josh
 
 - Seed file has been updated to work with current changes.
-- Having clothing_types in the styles table seemed unsustainable and messy. Noramlized it and moved it to it's own table.
+- Having clothing_types in the styles table seemed unsustainable and messy. Normalized it and moved it to its own table.
 - I left in the 'Clothing Articles' link as a way to show to add new clothing styles. Customers for this particular app wouldn't use it. But with proper authentication/authorization an admin might.
 - I added validation for status since that seemed important, changed the tests to reflect that.
 - Holidays have been a extremely busy so I'm sorry about the timing. I added in a few model tests and feature tests but didn't add in complete tests for every change due to timing.
 - Everything should be ready to up and run, just rake db:setup and go.
 - If you have any questions please let me know.
 - If report PDFs don't generate propery (they should since the correct gem is bundled), then you may need to manually install wkhtmltopdf on your dev machine.
-- Hope everyone had a happy holidays and have a good new year!
+- Hope everyone had/has a happy holidays and have a good new year!
 
 # Problem
 
