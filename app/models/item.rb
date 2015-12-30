@@ -8,8 +8,10 @@ class Item < ActiveRecord::Base
   scope :sellable, -> { where(status: 'sellable') }
 
   def clearance!
+    regular_clearance = style.wholesale_price * CLEARANCE_PRICE_PERCENTAGE
+    minimum_clearance = style.clothing.minimum
     update_attributes!(status: 'clearanced', 
-                       price_sold: style.wholesale_price * CLEARANCE_PRICE_PERCENTAGE)
+                       price_sold: [regular_clearance, minimum_clearance].max)
   end
 
 end

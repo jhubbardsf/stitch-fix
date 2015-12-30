@@ -1,4 +1,5 @@
 class ClearanceBatchesController < ApplicationController
+  before_action :set_batch, only: [:report]
 
   def index
     @clearance_batches  = ClearanceBatch.all
@@ -21,4 +22,16 @@ class ClearanceBatchesController < ApplicationController
     redirect_to action: :index
   end
 
+  def report
+  end
+
+  def report_pdf
+
+  end
+
+  private
+
+  def set_batch
+    @batch = ClearanceBatch.includes(items: [:style]).find(params[:id])
+  end
 end

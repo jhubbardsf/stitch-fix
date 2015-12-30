@@ -1,3 +1,8 @@
+# Notes from Josh
+
+- Seed file has been updated to work with current changes.
+- Having clothing_types in the styles table seemed unsustainable and messy. Noramlized it and moved it to it's own table.
+
 # Problem
 
 We need to clearance inventory from time to time.  Certain items don't sell through to our clients, so every month, we collect certain unsold items and sell them to a third party vendor for a portion of their wholesale price.

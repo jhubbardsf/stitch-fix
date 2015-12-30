@@ -53,6 +53,6 @@ class ClothingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def clothing_params
-      params.require(:clothing).permit(:name)
+      params.require(:clothing).permit(:name, :minimum)
     end
 end

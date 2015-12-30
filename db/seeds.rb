@@ -18,8 +18,9 @@ clothings = %w(Sweater Top Dress Pants Scarf)
 c_array = {}
 
 clothings.each do |clothing|
-  clothing = Clothing.create(name: clothing)
-  c_array[clothing.name] = clothing.id
+  price = ( clothing == 'Pants' || clothing == 'Dress' ) ? 5.0 : 2.0
+  new_clothing = Clothing.create(name: clothing, minimum: price)
+  c_array[new_clothing.name] = new_clothing.id
 end
 
 Style.create(name: "Abrianna Lightweight Knit Cardigan",

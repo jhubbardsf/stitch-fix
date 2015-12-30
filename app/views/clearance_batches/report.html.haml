@@ -1,0 +1,18 @@
+%h1= "Clearance Report for #{@batch.id} (#{l(@batch.created_at, format: :short)})"
+%p=  link_to 'Create PDF' ,'#', class: 'pdf-hide'
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th ID
+      %th Size
+      %th Color
+      %th Price
+      %th Style
+  %tbody
+    - @batch.items.each do |item|
+      %tr
+        %td= item.id
+        %td= item.size
+        %td= item.color
+        %td= number_to_currency(item.price_sold)
+        %td= item.style.name
