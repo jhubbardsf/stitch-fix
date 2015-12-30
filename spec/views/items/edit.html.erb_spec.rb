@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "items/edit", type: :view do
   before(:each) do
-    DatabaseCleaner.clean
     @item = assign(:item, Item.create!(
       :size => "",
       :color => "",

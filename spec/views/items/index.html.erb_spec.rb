@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "items/index", type: :view do
   before(:each) do
-    DatabaseCleaner.clean
     FactoryGirl.create(:style)
     assign(:items, [
       @item1 = Item.create!(
