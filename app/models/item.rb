@@ -5,6 +5,9 @@ class Item < ActiveRecord::Base
   belongs_to :style
   belongs_to :clearance_batch
 
+  validates :status, inclusion: { in: ['sellable', 'not sellable', 'sold', 'clearanced'],
+                                  message: "%{value} is not a valid status" }
+
   scope :sellable, -> { where(status: 'sellable') }
 
   def clearance!
