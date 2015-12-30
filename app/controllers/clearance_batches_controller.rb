@@ -1,5 +1,5 @@
 class ClearanceBatchesController < ApplicationController
-  before_action :set_batch, only: [:report]
+  before_action :set_batch, only: [:report, :report_pdf]
 
   def index
     @clearance_batches  = ClearanceBatch.all
@@ -23,10 +23,23 @@ class ClearanceBatchesController < ApplicationController
   end
 
   def report
+    def show
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render pdf: "file_name",
+          template: 'clearance_batches/report.pdf.haml'
+        end
+      end
+    end
   end
 
   def report_pdf
+    html = render_to_string "clearance_batches/report", :layout => 'layouts/pdf', encoding: "UTF-8"
 
+    report = WickedPdf.new.pdf_from_string(html)
+
+    send_data(report, :filename => "Batch ID#{@batch.id}.pdf", :type => 'application/pdf')
   end
 
   private

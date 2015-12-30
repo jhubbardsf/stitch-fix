@@ -9,6 +9,8 @@ gem "jquery-rails"
 gem "bootstrap-sass"
 gem 'jquery-datatables-rails', '~> 3.3.0'
 gem "haml-rails", "~> 0.9"
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
 
 group :test, :development do
   gem "rspec-rails"
