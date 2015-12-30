@@ -1,7 +1,12 @@
 FactoryGirl.define do
   factory :clothing do
-    name "Pants"
-    minimum 5
+      name "Pants"
+      minimum 5
+
+      factory :top do
+        name "Top"
+        minimum 2
+      end
   end
 
   factory :clearance_batch do

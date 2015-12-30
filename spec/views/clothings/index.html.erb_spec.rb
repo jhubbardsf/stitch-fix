@@ -4,10 +4,12 @@ RSpec.describe "clothings/index", type: :view do
   before(:each) do
     assign(:clothings, [
       Clothing.create!(
-        :name => "Name"
+        :name => "Name",
+        :minimum => 3
       ),
       Clothing.create!(
-        :name => "Name"
+        :name => "Name",
+        :minimum => 3
       )
     ])
   end

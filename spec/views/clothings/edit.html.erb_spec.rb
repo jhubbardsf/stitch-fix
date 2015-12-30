@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe "clothings/edit", type: :view do
   before(:each) do
     @clothing = assign(:clothing, Clothing.create!(
-      :name => "MyString"
+      :name => "MyString",
+      :minimum => 3
     ))
   end
 
