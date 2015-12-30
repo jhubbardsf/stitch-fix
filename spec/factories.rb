@@ -1,4 +1,7 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :clothing do
+    name "MyString"
+  end
+
 
   factory :clearance_batch do
 
