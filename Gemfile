@@ -8,6 +8,7 @@ gem "coffee-rails"
 gem "jquery-rails"
 gem "bootstrap-sass"
 gem 'jquery-datatables-rails', '~> 3.3.0'
+gem "haml-rails", "~> 0.9"
 
 group :test, :development do
   gem "rspec-rails"

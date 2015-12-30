@@ -4,6 +4,10 @@
   <strong>Name:</strong>
   <%= @clothing.name %>
 </p>
+<p>
+  <strong>Minimum:</strong>
+  <%= @clothing.minimum %>
+</p>
 
 <%= link_to 'Edit', edit_clothing_path(@clothing) %> |
 <%= link_to 'Back', clothings_path %>

@@ -7,21 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <%= render 'layouts/navigation' %>
+  </header>
 
-<div class="container">
-  <h1><%= link_to 'Stitch Fix Clearance Tool', root_path %></h1>
-  <%- if flash[:notice] -%>
-    <div class="alert alert-info" role="alert">
-      <%= flash[:notice].html_safe %>
-    </div>
-  <%- end -%>
-  <%- if flash[:alert] -%>
-    <div class="alert alert-danger" role="alert">
-      <%= flash[:alert].html_safe %>
-    </div>
-  <%- end -%>
-  <%= yield %>
-</div>
+  <div class="container">
+    <%= render 'layouts/messages' %>
+    <!--<%- if flash[:notice] -%>-->
+      <!--<div class="alert alert-info" role="alert">-->
+        <!--<%= flash[:notice].html_safe %>-->
+      <!--</div>-->
+    <!--<%- end -%>-->
+    <!--<%- if flash[:alert] -%>-->
+      <!--<div class="alert alert-danger" role="alert">-->
+        <!--<%= flash[:alert].html_safe %>-->
+      <!--</div>-->
+    <!--<%- end -%>-->
+    <%= yield %>
+  </div>
 
 </body>
 </html>
