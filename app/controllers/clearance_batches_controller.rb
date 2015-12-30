@@ -23,19 +23,11 @@ class ClearanceBatchesController < ApplicationController
   end
 
   def report
-    def show
-      respond_to do |format|
-        format.html
-        format.pdf do
-          render pdf: "file_name",
-          template: 'clearance_batches/report.pdf.haml'
-        end
-      end
-    end
   end
 
   def report_pdf
     html = render_to_string "clearance_batches/report", :layout => 'layouts/pdf', encoding: "UTF-8"
+    html.gsub!('<a class="pdf-hide" href="/report_pdf/1">Create PDF</a>', '')
 
     report = WickedPdf.new.pdf_from_string(html)
 

@@ -5,7 +5,7 @@ gem "sqlite3"
 gem "sass-rails"
 gem "uglifier"
 gem "coffee-rails"
-gem "jquery-rails"
+gem "jquery-rails", '4.0.3'
 gem "bootstrap-sass"
 gem 'jquery-datatables-rails', '~> 3.3.0'
 gem "haml-rails", "~> 0.9"

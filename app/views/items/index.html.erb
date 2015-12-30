@@ -26,9 +26,9 @@
         <td><%= item.size %></td>
         <td><%= item.color %></td>
         <td><%= item.status %></td>
-        <td><%= item.price_sold %></td>
-        <td><%= item.sold_at %></td>
-        <td><%= item.style.clothing_type %></td>
+        <td><%= number_to_currency(item.price_sold) %></td>
+        <td><%= number_to_currency(item.sold_at) %></td>
+        <td><%= item.style.name %></td>
         <td><%= item.clearance_batch_id %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>

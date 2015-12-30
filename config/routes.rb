@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :clothings
-  resources :clearance_batches, only: [:index, :create]
+  resources :clearance_batches, only: [:index, :create] do
+    resources :items, only: [:index]
+  end
   resources :items
   root to: "clearance_batches#index"
 

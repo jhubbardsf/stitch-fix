@@ -4,6 +4,10 @@ class ItemsController < ApplicationController
   # GET /items
   def index
     @items = Item.all.includes(:style)
+
+    if params[:clearance_batch_id]
+      @items = Item.where(clearance_batch_id: params[:clearance_batch_id])
+    end
   end
 
   # GET /items/1
