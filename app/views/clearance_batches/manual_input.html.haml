@@ -1,0 +1,12 @@
+.row.text-center
+  %h1 Custom Clearance Input
+
+  %p Input the item ideas in the box below seperated by commas.
+
+.row
+  .col-md-6.col-md-offset-3.text-center
+    = form_tag(process_manual_path, method: :post) do
+      %fieldset.form-group
+        %label Item IDs
+        = text_area_tag 'ids', nil, rows: 10, class: 'form-control'
+      %button{ type: 'submit', class: 'btn btn-primary' } Upload

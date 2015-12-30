@@ -6,7 +6,43 @@ class ClearanceBatchesController < ApplicationController
   end
 
   def create
-    clearancing_status = ClearancingService.new.process_file(params[:csv_batch_file].tempfile)
+    process_batch(params[:csv_batch_file].tempfile)
+  end
+
+  def report
+  end
+
+  def report_pdf
+    html = render_to_string "clearance_batches/report", :layout => 'layouts/pdf', encoding: "UTF-8"
+    html.gsub!('<a class="pdf-hide" href="/report_pdf/1">Create PDF</a>', '')
+
+    report = WickedPdf.new.pdf_from_string(html)
+
+    send_data(report, :filename => "Batch ID#{@batch.id}.pdf", :type => 'application/pdf')
+  end
+
+  def manual_input
+
+  end
+
+  def process_manual
+    ids = params['ids']
+    id_array = ids.split(',')
+
+    valid = id_array.all? {|i| is_number?(i) }
+
+    if valid && !ids.empty?
+      process_batch(id_array)
+    else
+      flash.now[:error] = 'Invalid input. Please only put item IDs and commas.'
+      render :manual_input
+    end
+  end
+
+  private
+
+  def process_batch(batch)
+    clearancing_status = ClearancingService.new.process_file(batch)
     clearance_batch    = clearancing_status.clearance_batch
     alert_messages     = []
     if clearance_batch.persisted?
@@ -22,21 +58,11 @@ class ClearanceBatchesController < ApplicationController
     redirect_to action: :index
   end
 
-  def report
-  end
-
-  def report_pdf
-    html = render_to_string "clearance_batches/report", :layout => 'layouts/pdf', encoding: "UTF-8"
-    html.gsub!('<a class="pdf-hide" href="/report_pdf/1">Create PDF</a>', '')
-
-    report = WickedPdf.new.pdf_from_string(html)
-
-    send_data(report, :filename => "Batch ID#{@batch.id}.pdf", :type => 'application/pdf')
-  end
-
-  private
-
   def set_batch
     @batch = ClearanceBatch.includes(items: [:style]).find(params[:id])
+  end
+
+  def is_number?(object)
+    true if Integer(object) rescue false
   end
 end

@@ -4,20 +4,33 @@ class ClearancingService
 
   def process_file(uploaded_file)
     clearancing_status      = create_clearancing_status
-    CSV.foreach(uploaded_file, headers: false) do |row|  
-      potential_item_id = row[0].to_i
-      clearancing_error = what_is_the_clearancing_error?(potential_item_id)
-      if clearancing_error
-        clearancing_status.errors << clearancing_error
-      else
-        clearancing_status.item_ids_to_clearance << potential_item_id
+
+    if uploaded_file.kind_of?(Array)
+      # Process manual array
+      uploaded_file.each do |id|
+        process_id(id.to_i, clearancing_status)
+      end
+    else
+      # Process CSV file
+      CSV.foreach(uploaded_file, headers: false) do |row|
+        potential_item_id = row[0].to_i
+        process_id(potential_item_id, clearancing_status)
       end
     end
 
-    clearance_items!(clearancing_status) 
+    clearance_items!(clearancing_status)
   end
 
 private
+
+  def process_id (potential_item_id, clearancing_status)
+    clearancing_error = what_is_the_clearancing_error?(potential_item_id)
+    if clearancing_error
+      clearancing_status.errors << clearancing_error
+    else
+      clearancing_status.item_ids_to_clearance << potential_item_id
+    end
+  end
 
   def clearance_items!(clearancing_status)
     if clearancing_status.item_ids_to_clearance.any? 
