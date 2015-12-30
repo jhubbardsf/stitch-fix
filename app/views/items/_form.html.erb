@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :style_id %><br>
-    <%= f.number_field :style_id %>
+    <%= f.select :style_id, options_for_select(clothing_select) %>
   </div>
   <div class="field">
     <%= f.label :clearance_batch_id %><br>

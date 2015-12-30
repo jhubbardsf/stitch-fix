@@ -6,7 +6,7 @@ RSpec.describe "items/edit", type: :view do
       :id => 1,
       :size => "",
       :color => "",
-      :status => "",
+      :status => "sellable",
       :price_sold => "9.99",
       :sold_at => "9.99",
       :style_id => 1,
@@ -31,7 +31,7 @@ RSpec.describe "items/edit", type: :view do
 
       assert_select "input#item_sold_at[name=?]", "item[sold_at]"
 
-      assert_select "input#item_style_id[name=?]", "item[style_id]"
+      assert_select "select#item_style_id[name=?]", "item[style_id]"
 
       assert_select "input#item_clearance_batch_id[name=?]", "item[clearance_batch_id]"
     end

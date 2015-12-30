@@ -3,6 +3,8 @@
 - Seed file has been updated to work with current changes.
 - Having clothing_types in the styles table seemed unsustainable and messy. Noramlized it and moved it to it's own table.
 - I left in the 'Clothing Articles' link as a way to show to add new clothing styles. Customers for this particular app wouldn't use it. But with proper authentication/authorization an admin might.
+- I added validation for status since that seemed important, changed the tests to reflect that.
+
 # Problem
 
 We need to clearance inventory from time to time.  Certain items don't sell through to our clients, so every month, we collect certain unsold items and sell them to a third party vendor for a portion of their wholesale price.

@@ -1,7 +1,8 @@
-FactoryGirl.define do  factory :clothing do
-    name "MyString"
+FactoryGirl.define do
+  factory :clothing do
+    name "Pants"
+    minimum 5
   end
-
 
   factory :clearance_batch do
 
@@ -15,6 +16,9 @@ FactoryGirl.define do  factory :clothing do
   end
 
   factory :style do
+    clothing
     wholesale_price 55
+    name "Bubble Pants"
   end
+
 end

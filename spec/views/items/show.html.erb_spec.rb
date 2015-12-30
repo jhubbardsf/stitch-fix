@@ -6,7 +6,7 @@ RSpec.describe "items/show", type: :view do
       :id => 1,
       :size => "",
       :color => "",
-      :status => "",
+      :status => "sellable",
       :price_sold => "9.99",
       :sold_at => "9.99",
       :style_id => 2,
@@ -19,7 +19,7 @@ RSpec.describe "items/show", type: :view do
     expect(rendered).to match(/1/)
     expect(rendered).to match(//)
     expect(rendered).to match(//)
-    expect(rendered).to match(//)
+    expect(rendered).to match(/sellable/)
     expect(rendered).to match(/9.99/)
     expect(rendered).to match(/9.99/)
     expect(rendered).to match(/2/)
