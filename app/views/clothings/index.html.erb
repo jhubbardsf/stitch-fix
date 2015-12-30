@@ -2,7 +2,7 @@
 
 <h1>Listing Clothings</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Name</th>
@@ -15,7 +15,7 @@
     <% @clothings.each do |clothing| %>
       <tr>
         <td><%= clothing.name %></td>
-        <td><%= clothing.minimum %></td>
+        <td><%= number_to_currency(clothing.minimum) %></td>
         <td><%= link_to 'Show', clothing %></td>
         <td><%= link_to 'Edit', edit_clothing_path(clothing) %></td>
         <td><%= link_to 'Destroy', clothing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
