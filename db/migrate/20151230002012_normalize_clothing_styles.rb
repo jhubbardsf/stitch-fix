@@ -6,7 +6,7 @@ class NormalizeClothingStyles < ActiveRecord::Migration
 
     styles.each do |style|
       clothing = Clothing.find_or_create_by(name: style.clothing_type)
-      style.clothing_id = clothing
+      style.clothing_id = clothing.id
       style.save
     end
 
@@ -23,7 +23,8 @@ class NormalizeClothingStyles < ActiveRecord::Migration
       style.clothing_id = nil
       style.save
     end
+
+    Clothing.delete_all
   end
 
-  Clothing.delete_all
 end

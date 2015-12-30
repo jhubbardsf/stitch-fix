@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230001432) do
+ActiveRecord::Schema.define(version: 20151230002012) do
 
   create_table "clearance_batches", force: :cascade do |t|
     t.datetime "created_at"
@@ -41,11 +41,11 @@ ActiveRecord::Schema.define(version: 20151230001432) do
   create_table "styles", force: :cascade do |t|
     t.decimal  "wholesale_price"
     t.decimal  "retail_price"
-    t.string   "clothing_type"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "minimum"
+    t.integer  "clothing_id"
   end
 
 end
