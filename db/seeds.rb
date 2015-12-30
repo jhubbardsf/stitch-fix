@@ -14,40 +14,48 @@ def make_items(style,color,sizes: { 'M' => 10, 'S' => 5, 'L' => 10 })
   end
 end
 
+clothings = %w(Sweater Top Dress Pants Scarf)
+c_array = {}
+
+clothings.each do |clothing|
+  clothing = Clothing.create(name: clothing)
+  c_array[clothing.name] = clothing.id
+end
+
 Style.create(name: "Abrianna Lightweight Knit Cardigan",
-             clothing_type: "Sweater",  wholesale_price: 10, retail_price: 60).tap { |style|
+             clothing_id: c_array["Sweater"],  wholesale_price: 10, retail_price: 60).tap { |style|
   make_items(style,"Purple")
   make_items(style,"Blue")
 }
 Style.create(name: "Bryan Short-Sleeve Open-Front Cardigan",
-             clothing_type: "Sweater",  wholesale_price: 15, retail_price: 60).tap { |style|
+             clothing_id: c_array["Sweater"],  wholesale_price: 15, retail_price: 60).tap { |style|
   make_items(style,"Red")
   make_items(style,"Blue")
 }
 Style.create(name: "Vicky Colorblock Trim Silk Blouse",
-             clothing_type: "Top",      wholesale_price: 13, retail_price: 45).tap { |style|
+             clothing_id: c_array["Top"],      wholesale_price: 13, retail_price: 45).tap { |style|
   make_items(style,"White")
 }
 Style.create(name: "Collegno Diamond Print Drawstring Waist Dress",
-             clothing_type: "Dress",    wholesale_price: 18, retail_price: 80).tap { |style|
+             clothing_id: c_array["Dress"],    wholesale_price: 18, retail_price: 80).tap { |style|
   make_items(style,"Orange")
   make_items(style,"Green")
 }
 Style.create(name: "Pomelo Critter Print Maxi Dress",
-             clothing_type: "Dress",    wholesale_price: 6, retail_price: 80).tap { |style|
+             clothing_id: c_array["Dress"],    wholesale_price: 6, retail_price: 80).tap { |style|
   make_items(style,"Orange")
   make_items(style,"Green")
 }
 Style.create(name: "Leah Straight Leg Cuffed Jean",
-             clothing_type: "Pants",    wholesale_price: 34, retail_price: 90).tap { |style|
+             clothing_id: c_array["Pants"],    wholesale_price: 34, retail_price: 90).tap { |style|
   make_items(style,"Navy")
   make_items(style,"Black")
 }
 Style.create(name: "Henry Birds on Branch Infinity Scarf",
-             clothing_type: "Scarf",    wholesale_price: 2, retail_price: 30).tap { |style|
+             clothing_id: c_array["Scarf"],    wholesale_price: 2, retail_price: 30).tap { |style|
   make_items(style,"Turquoise", sizes: { 'ANY' => 20 })
 }
 Style.create(name: "Blue Camo Print Boyfriend Jeans",
-             clothing_type: "Pants",    wholesale_price: 5, retail_price: 70).tap { |style|
+             clothing_id: c_array["Pants"],    wholesale_price: 5, retail_price: 70).tap { |style|
   make_items(style,"Navy")
 }
